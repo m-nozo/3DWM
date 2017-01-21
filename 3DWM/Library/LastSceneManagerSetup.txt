@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/uDesktopDuplication/Examples/Scenes/Displacement.unity
+- path: Assets/MainScene.unity
   isLoaded: 1
   isActive: 1
