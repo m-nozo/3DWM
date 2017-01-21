@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/LeapMotion/Scenes/Leap_Hands_Demo_AR.unity
+- path: Assets/uDesktopDuplication/Examples/Scenes/Displacement.unity
   isLoaded: 1
   isActive: 1

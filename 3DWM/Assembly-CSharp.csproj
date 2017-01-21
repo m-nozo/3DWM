@@ -115,6 +115,22 @@
      <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\VRHeightOffset.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\DisplacementMapping.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\GazePointAnalyzer.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\GetPixelsExample.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\Loupe.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorAnalyzer.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorCreator.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorLayouter.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorRoundLayouter.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\RaycastTest.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\ToggleMonitors.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\UddSceneManager.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Scripts\Lib.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Scripts\Manager.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Scripts\Monitor.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Scripts\Texture.cs" />
+     <Compile Include="Assets\uDesktopDuplication\Scripts\Utility.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
      <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />
@@ -122,10 +138,17 @@
      <None Include="Assets\LeapMotion\Resources\RuntimeGizmos.shader" />
      <None Include="Assets\LeapMotion\Dependencies.txt" />
      <None Include="Assets\LeapMotion\Resources\ThresholdOverlay.shader" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Params.cginc" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Common.cginc" />
      <None Include="Assets\LeapMotion\Resources\PassthroughForeground.shader" />
      <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_BlackMask.shader" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Standard.shader" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_Displacement.shader" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit.shader" />
      <None Include="Assets\LeapMotion\Version.txt" />
      <None Include="Assets\LeapMotion\Resources\VertexOffsetShader.shader" />
+     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_Transparent.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

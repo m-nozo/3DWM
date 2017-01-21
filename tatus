@@ -1,0 +1,272 @@
+[1mdiff --git a/3DWM/Assembly-CSharp-Editor.csproj b/3DWM/Assembly-CSharp-Editor.csproj[m
+[1mindex b206749..512f5a8 100644[m
+[1m--- a/3DWM/Assembly-CSharp-Editor.csproj[m
+[1m+++ b/3DWM/Assembly-CSharp-Editor.csproj[m
+[36m@@ -61,6 +61,8 @@[m
+      <Compile Include="Assets\LeapMotion\Scripts\DataStructures\Editor\Tests\RingBufferTest.cs" />[m
+      <Compile Include="Assets\LeapMotion\Scripts\VR\Editor\EyeTypeEditor.cs" />[m
+      <Compile Include="Assets\LeapMotion\Scripts\VR\Editor\LeapTemporalWarpingEditor.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Editor\TextureEditor.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Editor\Utils.cs" />[m
+      <None Include="Assets\Plugins\donotdelete.txt" />[m
+      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />[m
+      <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />[m
+[36m@@ -68,10 +70,17 @@[m
+      <None Include="Assets\LeapMotion\Resources\RuntimeGizmos.shader" />[m
+      <None Include="Assets\LeapMotion\Dependencies.txt" />[m
+      <None Include="Assets\LeapMotion\Resources\ThresholdOverlay.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Params.cginc" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Common.cginc" />[m
+      <None Include="Assets\LeapMotion\Resources\PassthroughForeground.shader" />[m
+      <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_BlackMask.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Standard.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_Displacement.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit.shader" />[m
+      <None Include="Assets\LeapMotion\Version.txt" />[m
+      <None Include="Assets\LeapMotion\Resources\VertexOffsetShader.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_Transparent.shader" />[m
+  <Reference Include="UnityEditor.Advertisements">[m
+  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>[m
+  </Reference>[m
+[36m@@ -120,15 +129,19 @@[m
+  <Reference Include="UnityEngine.VR">[m
+  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>[m
+  </Reference>[m
+[32m+[m[32m <Reference Include="LeapCSharp.NET3.5">[m
+[32m+[m[32m <HintPath>C:/Users/uedalab/Documents/3DWM/3DWM/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>[m
+[32m+[m[32m </Reference>[m
+  <Reference Include="UnityEditor.Graphs">[m
+  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>[m
+  </Reference>[m
+  <Reference Include="UnityEditor.WindowsStandalone.Extensions">[m
+  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>[m
+  </Reference>[m
+[31m- <Reference Include="LeapCSharp.NET3.5">[m
+[31m- <HintPath>C:/Users/uedalab/Documents/3DWM/3DWM/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>[m
+[31m- </Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-CSharp.csproj">[m
+[32m+[m[32m      <Project>{8D7618DD-B664-76A2-7295-49D966E642B5}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>[m
+   </ItemGroup>[m
+   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />[m
+   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. [m
+[1mdiff --git a/3DWM/Assembly-CSharp.csproj b/3DWM/Assembly-CSharp.csproj[m
+[1mindex 835c0a6..1d564aa 100644[m
+[1m--- a/3DWM/Assembly-CSharp.csproj[m
+[1m+++ b/3DWM/Assembly-CSharp.csproj[m
+[36m@@ -115,6 +115,22 @@[m
+      <Compile Include="Assets\LeapMotion\Scwarning: LF will be replaced by CRLF in 3DWM/Library/ScriptAssemblies/BuiltinAssemblies.stamp.
+The file will have its original line endings in your working directory.
+ripts\VR\LeapVRTemporalWarping.cs" />[m
+      <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />[m
+      <Compile Include="Assets\LeapMotion\Scripts\VR\VRHeightOffset.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\DisplacementMapping.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\GazePointAnalyzer.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\GetPixelsExample.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\Loupe.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorAnalyzer.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorCreator.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorLayouter.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\MultipleMonitorRoundLayouter.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\RaycastTest.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\ToggleMonitors.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Examples\Scripts\UddSceneManager.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Scripts\Lib.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Scripts\Manager.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Scripts\Monitor.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Scripts\Texture.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\uDesktopDuplication\Scripts\Utility.cs" />[m
+      <None Include="Assets\Plugins\donotdelete.txt" />[m
+      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />[m
+      <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />[m
+[36m@@ -122,10 +138,17 @@[m
+      <None Include="Assets\LeapMotion\Resources\RuntimeGizmos.shader" />[m
+      <None Include="Assets\LeapMotion\Dependencies.txt" />[m
+      <None Include="Assets\LeapMotion\Resources\ThresholdOverlay.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Params.cginc" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Common.cginc" />[m
+      <None Include="Assets\LeapMotion\Resources\PassthroughForeground.shader" />[m
+      <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_BlackMask.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Standard.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_Displacement.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit.shader" />[m
+      <None Include="Assets\LeapMotion\Version.txt" />[m
+      <None Include="Assets\LeapMotion\Resources\VertexOffsetShader.shader" />[m
+[32m+[m[32m     <None Include="Assets\uDesktopDuplication\Shaders\uDD_Unlit_Transparent.shader" />[m
+  <Reference Include="UnityEngine.UI">[m
+  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>[m
+  </Reference>[m
+[1mdiff --git a/3DWM/Library/CurrentLayout.dwlt b/3DWM/Library/CurrentLayout.dwlt[m
+[1mindex c677ef9..586712a 100644[m
+Binary files a/3DWM/Library/CurrentLayout.dwlt and b/3DWM/Library/CurrentLayout.dwlt differ
+[1mdiff --git a/3DWM/Library/LastSceneManagerSetup.txt b/3DWM/Library/LastSceneManagerSetup.txt[m
+[1mindex 4de5d54..35825bc 100644[m
+[1m--- a/3DWM/Library/LastSceneManagerSetup.txt[m
+[1m+++ b/3DWM/Library/LastSceneManagerSetup.txt[m
+[36m@@ -1,4 +1,4 @@[m
+ sceneSetups:[m
+[31m-- path: Assets/LeapMotion/Scenes/Leap_Hands_Demo_AR.unity[m
+[32m+[m[32m- path: Assets/uDesktopDuplication/Examples/Scenes/Displacement.unity[m
+   isLoaded: 1[m
+   isActive: 1[m
+[1mdiff --git a/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll b/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll[m
+[1mindex 38291c0..cef136d 100644[m
+Binary files a/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll and b/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll differ
+[1mdiff --git a/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb b/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb[m
+[1mindex 1eb14bd..b56b656 100644[m
+Binary files a/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb and b/3DWM/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb differ
+[1mdiff --git a/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll b/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll[m
+[1mindex 503c860..a679371 100644[m
+Binary files a/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll and b/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll differ
+[1mdiff --git a/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb b/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb[m
+[1mindex 06f8fa1..2d9b4eb 100644[m
+Binary files a/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb and b/3DWM/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb differ
+[1mdiff --git a/3DWM/Library/ScriptMapper b/3DWM/Library/ScriptMapper[m
+[1mindex 5340578..fa5ad3e 100644[m
+Binary files a/3DWM/Library/ScriptMapper and b/3DWM/Library/ScriptMapper differ
+[1mdiff --git a/3DWM/Library/assetDatabase3 b/3DWM/Library/assetDatabase3[m
+[1mindex 4c6b662..85bee4b 100644[m
+Binary files a/3DWM/Library/assetDatabase3 and b/3DWM/Library/assetDatabase3 differ
+[1mdiff --git a/3DWM/Library/expandedItems b/3DWM/Library/expandedItems[m
+[1mindex afb5554..d7b17cc 100644[m
+Binary files a/3DWM/Library/expandedItems and b/3DWM/Library/expandedItems differ
+[1mdiff --git a/3DWM/Library/shadercompiler-UnityShaderCompiler.exe0.log b/3DWM/Library/shadercompiler-UnityShaderCompiler.exe0.log[m
+[1mindex a18abd1..9a0cd6e 100644[m
+[1m--- a/3DWM/Library/shadercompiler-UnityShaderCompiler.exe0.log[m
+[1m+++ b/3DWM/Library/shadercompiler-UnityShaderCompiler.exe0.log[m
+[36m@@ -1,88 +1,80 @@[m
+ Base path: C:/Program Files/Unity/Editor/Data[m
+ Cmd: getPlatforms[m
+[31m-Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=870 outsize=522 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[31m-Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=870 outsize=298 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: preprocess[m
+[31m-  insize=2078 outsize=806 ok=1[m
+[31m-Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1429 outsize=406 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[31m-Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1429 outsize=226 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[31m-Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1429 outsize=406 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  insize=4213 outsize=986 ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1429 outsize=226 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=3540 outsize=450 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1431 outsize=810 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=3540 outsize=310 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1431 outsize=282 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=2 insize=3540 outsize=2386 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1431 outsize=810 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[31m-Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1431 outsize=282 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=3 insize=3540 outsize=1322 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: preprocess[m
+[31m-  insize=948 outsize=304 ok=1[m
+[32m+[m[32m  insize=1667 outsize=1547 ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=948 outsize=810 kw=LEAP_FORMAT_IR pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=1007392 outsize=1498 kw=DIRECTIONAL _FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=948 outsize=978 kw=LEAP_FORMAT_IR pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[31m-Cmd: preprocess[m
+[31m-  insize=1281 outsize=1232 ok=1[m
+[32m+[m[32m  api=4 type=1 insize=1007392 outsize=5822 kw=DIRECTIONAL _FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=7815 outsize=1986 kw=DIRECTIONAL pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=577104 outsize=1126 kw=POINT _FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=7815 outsize=5822 kw=DIRECTIONAL pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=577104 outsize=2978 kw=POINT _FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=4501 outsize=1614 kw=POINT pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=876126 outsize=1498 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=4501 outsize=2978 kw=POINT pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=876126 outsize=2234 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=6851 outsize=1986 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=497983 outsize=1262 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=6851 outsize=2234 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=497983 outsize=642 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32mCmd: preprocess[m
+[32m+[m[32m  insize=1305 outsize=653 ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=3866 outsize=1730 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=960 outsize=554 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=3866 outsize=642 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=960 outsize=298 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: preprocess[m
+[31m-  insize=1342 outsize=511 ok=1[m
+[32m+[m[32m  insize=1442 outsize=764 ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1135 outsize=810 kw=LEAP_FORMAT_IR pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=986 outsize=554 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1135 outsize=1290 kw=LEAP_FORMAT_IR pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=986 outsize=374 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: preprocess[m
+[31m-  insize=906 outsize=262 ok=1[m
+[32m+[m[32m  insize=1587 outsize=796 ok=1[m
+[32m+[m[32mCmd: compileSnippet[m
+[32m+[m[32m  api=4 type=0 insize=1099 outsize=554 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32mCmd: compileSnippet[m
+[32m+[m[32m  api=4 type=1 insize=1099 outsize=542 kw=_FORWARD_Y pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=946 outsize=810 kw=LEAP_FORMAT_IR pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=597 outsize=1542 kw=SHADOWS_DEPTH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=946 outsize=978 kw=LEAP_FORMAT_IR pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=597 outsize=218 kw=SHADOWS_DEPTH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1108 outsize=622 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=1007392 outsize=1498 kw=DIRECTIONAL _FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1108 outsize=402 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=1007392 outsize=5882 kw=DIRECTIONAL _FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=728 outsize=1542 kw=SHADOWS_DEPTH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=577104 outsize=1126 kw=DIRECTIONAL _FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=728 outsize=182 kw=SHADOWS_DEPTH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=577104 outsize=2678 kw=DIRECTIONAL _FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1023 outsize=1698 kw=DIRECTIONAL pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=1099 outsize=554 kw=_FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1023 outsize=6014 kw=DIRECTIONAL pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=1099 outsize=602 kw=_FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=949 outsize=1378 kw=DIRECTIONAL pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=960 outsize=554 kw=_FORWARD_Z pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=949 outsize=2678 kw=DIRECTIONAL pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=960 outsize=298 kw=_FORWARD_Z pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=18539 outsize=1126 kw=SHADOWS_SPLIT_SPHERES pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=3540 outsize=450 kw=_FORWARD_Z BEND_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=18539 outsize=4502 kw=SHADOWS_SPLIT_SPHERES pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=3540 outsize=310 kw=_FORWARD_Z BEND_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=1023 outsize=1874 kw=DIRECTIONAL SHADOWS_SCREEN pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=2 insize=3540 outsize=2386 kw=_FORWARD_Z BEND_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=1023 outsize=6166 kw=DIRECTIONAL SHADOWS_SCREEN pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=3 insize=3540 outsize=1694 kw=_FORWARD_Z BEND_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=0 insize=18543 outsize=1126 kw=SHADOWS_SPLIT_SPHERES pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=0 insize=986 outsize=554 kw=_FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+ Cmd: compileSnippet[m
+[31m-  api=4 type=1 insize=18543 outsize=4374 kw=SHADOWS_SPLIT_SPHERES pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+[32m+[m[32m  api=4 type=1 insize=986 outsize=434 kw=_FORWARD_Y INVERT_X pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1[m
+warning: LF will be replaced by CRLF in 3DWM/Library/LastSceneManagerSetup.txt.
+The file will have its original line endings in your working directory.
