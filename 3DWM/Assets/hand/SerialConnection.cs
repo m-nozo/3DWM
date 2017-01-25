@@ -3,14 +3,14 @@ using System.Collections;
 using System.IO.Ports;
 using System.Threading;
 
-public class ButtonScript
+public class SerialConnection
 {
     public delegate void SerialDataReceivedEventHandler(string message);
     
     private static SerialPort serialPort_ = new SerialPort("COM3", 9600);
     
     // Use this for initialization
-    public ButtonScript()
+    public SerialConnection()
     {
         if (!serialPort_.IsOpen)
             OpenConnection();
@@ -34,10 +34,6 @@ public class ButtonScript
         }
         Debug.Log("open");
     }
-    //void Awake()
-    //{
-    //    Open();
-    //}
     
     void OnApplicationQuit()
     {
