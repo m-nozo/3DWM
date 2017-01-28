@@ -73,8 +73,8 @@ public class DeviceHandler : MonoBehaviour
         sc.Write("z\0");
     }
 
-    void OnTriggerEnter(Collider other) {
-        click_tester();
+    void OnTriggerStay(Collider other) {
+        click_tester(other);
         if (this.gameObject.name == "bone3LT")
         {
             Debug.Log("hit thumb");
@@ -103,12 +103,15 @@ public class DeviceHandler : MonoBehaviour
     }
     
     // click event test
-    private void click_tester()
+    private void click_tester(Collider other)
     {
-        Debug.Log(this.gameObject.name);
+        // ヒットした指とディスプレイの相対ベクトル
+        Vector3 mouse_pos = other.transform.InverseTransformPoint(this.transform.position);
+        Debug.Log(mouse_pos);
+        
         // var point = button2.Parent.PointToScreen(button2.Location); // button2の座標取得
         // var point = Point(100, 200);
-        SetCursorPos(100, 150);   // button2へ移動
+        SetCursorPos((int)(1920 * (5.2 + mouse_pos.x)/10.4), (int)(1080 * (5.3 - mouse_pos.y) / 10.6));
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);              // マウスの左ボタンダウンイベントを発生させる
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);                // マウスの左ボタンアップイベントを発生させる
     }
