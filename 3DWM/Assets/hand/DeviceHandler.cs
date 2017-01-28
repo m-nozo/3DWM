@@ -73,8 +73,7 @@ public class DeviceHandler : MonoBehaviour
         sc.Write("z\0");
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
+    void OnTriggerEnter(Collider other) {
         click_tester();
         if (this.gameObject.name == "bone3LT")
         {
@@ -102,7 +101,7 @@ public class DeviceHandler : MonoBehaviour
             Hit_pinky();
         }
     }
-
+    
     // click event test
     private void click_tester()
     {
