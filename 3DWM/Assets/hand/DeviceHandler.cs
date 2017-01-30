@@ -12,8 +12,11 @@ public class DeviceHandler : MonoBehaviour
     static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
     private const int MOUSEEVENTF_LEFTDOWN = 0x2;
     private const int MOUSEEVENTF_LEFTUP = 0x4;
-
+    private const int MOUSEEVENTF_MOVE = 0x0001;
+    private const int MOUSEEVENTF_ABSOLUTE = 0x8000;
     public SerialConnection sc;
+    public GameObject display;
+
     void Start()
     {
         sc = new SerialConnection();  // OpenConnection
@@ -73,8 +76,19 @@ public class DeviceHandler : MonoBehaviour
         sc.Write("z\0");
     }
 
-    void OnTriggerStay(Collider other) {
-        click_tester(other);
+    void OnTriggerEnter(Collider other)
+    {
+        FireLeftClickDown(other);
+        if (this.gameObject.name == "bone3LI")
+        {
+            Debug.Log("Enter: index");
+            Hit_index();
+        }
+    }
+    
+    void OnTriggerExit(Collider other)
+    {
+        //FireLeftClickUp(other);
         if (this.gameObject.name == "bone3LT")
         {
             Debug.Log("hit thumb");
@@ -102,17 +116,38 @@ public class DeviceHandler : MonoBehaviour
         }
     }
     
-    // click event test
-    private void click_tester(Collider other)
+    void Update()
+    {
+        // Tracking the index finger
+        Vector3 mouse_pos = display.transform.InverseTransformPoint(this.transform.position);
+        int x = (int)(1920 * (5.2 + mouse_pos.x) / 10.4);
+        int y = (int)(1080 * (5.3 - mouse_pos.y) / 10.6);
+        SetCursorPos(x, y);
+        mouse_event(MOUSEEVENTF_MOVE, 0, 0, 0, 0);
+    }
+    
+    private void FireLeftClickDown(Collider other)
     {
         // ヒットした指とディスプレイの相対ベクトル
         Vector3 mouse_pos = other.transform.InverseTransformPoint(this.transform.position);
-        Debug.Log(mouse_pos);
-        
-        // var point = button2.Parent.PointToScreen(button2.Location); // button2の座標取得
-        // var point = Point(100, 200);
-        SetCursorPos((int)(1920 * (5.2 + mouse_pos.x)/10.4), (int)(1080 * (5.3 - mouse_pos.y) / 10.6));
+        Debug.Log((int)(1920 * (5.2 + mouse_pos.x) / 10.4)+ ", " +(int)(1080 * (5.3 - mouse_pos.y) / 10.6));
+
+        int x = (int)(1920 * (5.2 + mouse_pos.x) / 10.4);
+        int y = (int)(1080 * (5.3 - mouse_pos.y) / 10.6);
+        SetCursorPos(x, y);
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);              // マウスの左ボタンダウンイベントを発生させる
+        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);                // マウスの左ボタンアップイベントを発生させる
+    }
+
+    private void FireLeftClickUp(Collider other)
+    {
+        // ヒットした指とディスプレイの相対ベクトル
+        Vector3 mouse_pos = other.transform.InverseTransformPoint(this.transform.position);
+        Debug.Log((int)(1920 * (5.2 + mouse_pos.x) / 10.4) + ", " + (int)(1080 * (5.3 - mouse_pos.y) / 10.6));
+
+        int x = (int)(1920 * (5.2 + mouse_pos.x) / 10.4);
+        int y = (int)(1080 * (5.3 - mouse_pos.y) / 10.6);
+        SetCursorPos(x, y);
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);                // マウスの左ボタンアップイベントを発生させる
     }
 }
