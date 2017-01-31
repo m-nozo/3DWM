@@ -1998,6 +1998,17 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 183326, guid: 23f2cce114628a448bfeaae171b4c0c0, type: 2}
   m_PrefabInternal: {fileID: 1981835478}
+--- !u!114 &1317272644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317272643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5417fe1a1f18ce4c957cd8460e54f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1317272647
 MonoBehaviour:
   m_ObjectHideFlags: 0

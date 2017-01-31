@@ -124,6 +124,8 @@ public class DeviceHandler : MonoBehaviour
         int y = (int)(1080 * (5.3 - mouse_pos.y) / 10.6);
         SetCursorPos(x, y);
         mouse_event(MOUSEEVENTF_MOVE, 0, 0, 0, 0);
+
+        //sc.Read();
     }
     
     private void FireLeftClickDown(Collider other)
