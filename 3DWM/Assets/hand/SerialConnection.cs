@@ -41,14 +41,16 @@ public class SerialConnection
         thread_.Start();
         Debug.Log("open");
     }
-    
+
     void OnApplicationQuit()
     {
         serialPort_.Close();
-        if (thread_ != null && thread_.IsAlive)
+        Debug.Log("hogohogo");
+        //if (thread_ != null && thread_.IsAlive)
         {
             thread_.Join();
         }
+        Debug.Log("kkkkk");
 
     }
 
@@ -61,7 +63,7 @@ public class SerialConnection
     {
         int i = 0; // for debug
         Debug.Log("read");
-        while (serialPort_ != null && serialPort_.IsOpen && i < 200)
+        while (serialPort_ != null && serialPort_.IsOpen /*&& i < 1000*/)
         {
             try
             {

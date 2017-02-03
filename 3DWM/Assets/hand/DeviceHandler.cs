@@ -82,6 +82,11 @@ public class DeviceHandler : MonoBehaviour
         if (this.gameObject.name == "bone3LI")
         {
             Debug.Log("Enter: index");
+            //Hit_index();
+        }
+        if (this.gameObject.name == "IndexBall")
+        {
+            Debug.Log("hit indexball!!!!");
             Hit_index();
         }
     }
@@ -97,7 +102,7 @@ public class DeviceHandler : MonoBehaviour
         if (this.gameObject.name == "bone3LI")
         {
             Debug.Log("hit index");
-            Hit_index();
+            //Hit_index();
         }
         if (this.gameObject.name == "bone3LM")
         {
@@ -113,6 +118,11 @@ public class DeviceHandler : MonoBehaviour
         {
             Debug.Log("hit pinky");
             Hit_pinky();
+        }
+        if (this.gameObject.name == "IndexBall")
+        {
+            Debug.Log("hit indexball!!!!");
+            Hit_index();
         }
     }
     
