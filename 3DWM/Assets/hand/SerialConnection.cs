@@ -3,7 +3,7 @@ using System.Collections;
 using System.IO.Ports;
 using System.Threading;
 
-public class SerialConnection 
+public class SerialConnection
 {
     public delegate void SerialDataReceivedEventHandler(string message);
     private static SerialPort serialPort_ = new SerialPort("COM3", 9600);
@@ -20,6 +20,18 @@ public class SerialConnection
         GetMessage_ = false;
     }
     
+    ~SerialConnection()
+    {
+        if (serialPort_.IsOpen)
+        {
+            serialPort_.Close();
+            if (!serialPort_.IsOpen) Debug.Log("Serial connection was closed");
+        }
+        else
+        {
+            Debug.Log("Serial connection had already been closed");
+        }
+    }
 
     void OpenConnection()
     {
@@ -42,18 +54,6 @@ public class SerialConnection
         Debug.Log("open");
     }
 
-    void OnApplicationQuit()
-    {
-        serialPort_.Close();
-        Debug.Log("hogohogo");
-        //if (thread_ != null && thread_.IsAlive)
-        {
-            thread_.Join();
-        }
-        Debug.Log("kkkkk");
-
-    }
-
     public string readRead()
     {
         return message_;
@@ -61,9 +61,8 @@ public class SerialConnection
 
     public void Read()
     {
-        int i = 0; // for debug
         Debug.Log("read");
-        while (serialPort_ != null && serialPort_.IsOpen /*&& i < 1000*/)
+        while (serialPort_ != null && serialPort_.IsOpen)
         {
             try
             {
@@ -76,10 +75,9 @@ public class SerialConnection
             {
                 Debug.LogWarning(e.Message);
             }
-            i++;
         }
-        Debug.Log("join");
-        thread_.Join();
+        Debug.Log("Read function was finished");
+        return;
     }
 
     public void Write(string message)
