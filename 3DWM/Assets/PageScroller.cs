@@ -38,6 +38,7 @@ public class PageScroller : MonoBehaviour {
         Debug.Log("*** Start Scrorll Down !!! ***");
         isScrolling = true;
         pageDown = true;
+        DeviceHandler.get_sc().Write("b\0");
     }
 
     public void StartScrollUp()
@@ -45,11 +46,13 @@ public class PageScroller : MonoBehaviour {
         Debug.Log("*** Start Scrorll Up !!! ***");
         isScrolling = true;
         pageDown = false;
+        DeviceHandler.get_sc().Write("b\0");
     }
 
     public void StopScroll()
     {
         Debug.Log("*** Stop Scrorll !!! ***");
         isScrolling = false;
+        DeviceHandler.get_sc().Write("w\0");
     }
 }
