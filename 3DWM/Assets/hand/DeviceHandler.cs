@@ -14,13 +14,16 @@ public class DeviceHandler : MonoBehaviour
     private const int MOUSEEVENTF_LEFTUP = 0x4;
     private const int MOUSEEVENTF_MOVE = 0x0001;
     private const int MOUSEEVENTF_ABSOLUTE = 0x8000;
-    public SerialConnection sc;
+    static public SerialConnection sc;
     public GameObject display;
+
+    static public SerialConnection get_sc() { return sc; }
 
     void Start()
     {
         sc = new SerialConnection();  // OpenConnection
     }
+
     // hit index
     public void Hit_index()
     {
@@ -31,7 +34,6 @@ public class DeviceHandler : MonoBehaviour
     {
         sc.Write("w\0");
     }
-    
     
     void OnTriggerEnter(Collider other)
     {

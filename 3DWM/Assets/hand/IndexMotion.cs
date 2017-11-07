@@ -21,7 +21,7 @@ public class IndexMotion : MonoBehaviour {
         so = new SerialConnection();
         Debug.Log("instantiated an SerialConnection object");
         dst_rb = index.GetComponent<Rigidbody>();
-        Debug.Log(dst_rb.transform.position);
+        //Debug.Log(dst_rb.transform.position);
     }
 	
 	// Update is called once per frame
@@ -31,7 +31,7 @@ public class IndexMotion : MonoBehaviour {
         try
         {
             bend_v = float.Parse(mess);
-            Debug.Log(bend_v);
+            //Debug.Log(bend_v);
             bend_v = 500 - bend_v;
             prev_bend_v = bend_v / 5000;
         }
