@@ -27,7 +27,7 @@ public class PageScroller : MonoBehaviour {
             Vector3 mouse_pos = display.transform.InverseTransformPoint(index_finger.transform.position);
             int x = (int)(1920 * (5.2 + mouse_pos.x) / 10.4);
             int y = (int)(1080 * (5.3 - mouse_pos.y) / 10.6);
-            SetCursorPos(x, y);
+            // SetCursorPos(x, y);
             int diff = 12 * (pageDown ? -1 : 1);
             mouse_event(MOUSEEVENTF_WHEEL, 0, 0, diff, 0);                // マウスの左ボタンアップイベントを発生させる
         }

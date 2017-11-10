@@ -28,7 +28,7 @@ public class DeviceHandler : MonoBehaviour
     public void Hit_index()
     {
         sc.Write("b\0");
-        Invoke("fin_index", 1f);
+        Invoke("fin_index", 0.1f);
     }
     void fin_index()
     {
